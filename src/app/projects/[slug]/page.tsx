@@ -6,6 +6,8 @@ import Link from "next/link";
 import { siteData } from "@/data/siteData";
 import { notFound } from "next/navigation";
 
+//d
+
 const ProjectDetailPage = () => {
     const params = useParams();
     const slug = params.slug;
@@ -35,9 +37,9 @@ const ProjectDetailPage = () => {
         <main>
             {/* HERO */}
             <section className="project-detail-hero">
-                <img 
-                    src={project.bannerImage} 
-                    alt={project.name} 
+                <img
+                    src={project.bannerImage}
+                    alt={project.name}
                     onClick={() => setLightboxImage(project.bannerImage)}
                     style={{ cursor: "zoom-in" }}
                 />
@@ -73,8 +75,8 @@ const ProjectDetailPage = () => {
 
                             <div className="project-gallery">
                                 {project.gallery.map((img: any, i) => (
-                                    <div 
-                                        key={i} 
+                                    <div
+                                        key={i}
                                         className={`project-gallery-img ${img.full ? "full" : ""} ${img.span2 ? "span2" : ""}`}
                                         onClick={() => setLightboxImage(img.image)}
                                         style={{ cursor: "zoom-in" }}
@@ -169,8 +171,8 @@ const ProjectDetailPage = () => {
 
             {/* LIGHTBOX OVERLAY */}
             {lightboxImage && (
-                <div 
-                    className="lightbox-overlay" 
+                <div
+                    className="lightbox-overlay"
                     onClick={() => setLightboxImage(null)}
                     style={{
                         position: "fixed",
@@ -186,7 +188,7 @@ const ProjectDetailPage = () => {
                         cursor: "zoom-out"
                     }}
                 >
-                    <button 
+                    <button
                         onClick={(e) => {
                             e.stopPropagation();
                             setLightboxImage(null);
@@ -207,17 +209,17 @@ const ProjectDetailPage = () => {
                     >
                         &times;
                     </button>
-                    <img 
-                        src={lightboxImage} 
-                        alt="Fullscreen View" 
+                    <img
+                        src={lightboxImage}
+                        alt="Fullscreen View"
                         onClick={(e) => e.stopPropagation()}
-                        style={{ 
-                            maxWidth: "90%", 
-                            maxHeight: "90%", 
+                        style={{
+                            maxWidth: "90%",
+                            maxHeight: "90%",
                             objectFit: "contain",
                             cursor: "default",
                             boxShadow: "0 0 20px rgba(0,0,0,0.5)"
-                        }} 
+                        }}
                     />
                 </div>
             )}

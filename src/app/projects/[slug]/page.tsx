@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { siteData } from "@/data/siteData";
@@ -9,6 +9,17 @@ import { notFound } from "next/navigation";
 const ProjectDetailPage = () => {
     const params = useParams();
     const slug = params.slug;
+
+    const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+    // Close lightbox on Escape key
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setLightboxImage(null);
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, []);
 
     const project = siteData.projects.find(p => p.slug === slug);
 
@@ -24,7 +35,12 @@ const ProjectDetailPage = () => {
         <main>
             {/* HERO */}
             <section className="project-detail-hero">
-                <img src={project.bannerImage} alt={project.name} />
+                <img 
+                    src={project.bannerImage} 
+                    alt={project.name} 
+                    onClick={() => setLightboxImage(project.bannerImage)}
+                    style={{ cursor: "zoom-in" }}
+                />
                 <div className="project-detail-hero-content">
                     <div className="breadcrumb">
                         <Link href="/projects">Projects</Link>
@@ -57,7 +73,12 @@ const ProjectDetailPage = () => {
 
                             <div className="project-gallery">
                                 {project.gallery.map((img: any, i) => (
-                                    <div key={i} className={`project-gallery-img ${img.full ? "full" : ""} ${img.span2 ? "span2" : ""}`}>
+                                    <div 
+                                        key={i} 
+                                        className={`project-gallery-img ${img.full ? "full" : ""} ${img.span2 ? "span2" : ""}`}
+                                        onClick={() => setLightboxImage(img.image)}
+                                        style={{ cursor: "zoom-in" }}
+                                    >
                                         <img src={img.image} alt={img.alt} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                     </div>
                                 ))}
@@ -144,6 +165,61 @@ const ProjectDetailPage = () => {
                         </div>
                     </div>
                 </section>
+            )}
+
+            {/* LIGHTBOX OVERLAY */}
+            {lightboxImage && (
+                <div 
+                    className="lightbox-overlay" 
+                    onClick={() => setLightboxImage(null)}
+                    style={{
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0, 0, 0, 0.9)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        zIndex: 99999,
+                        cursor: "zoom-out"
+                    }}
+                >
+                    <button 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxImage(null);
+                        }}
+                        style={{
+                            position: "absolute",
+                            top: "2rem",
+                            right: "2rem",
+                            background: "transparent",
+                            border: "none",
+                            color: "white",
+                            fontSize: "3rem",
+                            cursor: "pointer",
+                            lineHeight: 1,
+                            zIndex: 100000
+                        }}
+                        aria-label="Close Lightbox"
+                    >
+                        &times;
+                    </button>
+                    <img 
+                        src={lightboxImage} 
+                        alt="Fullscreen View" 
+                        onClick={(e) => e.stopPropagation()}
+                        style={{ 
+                            maxWidth: "90%", 
+                            maxHeight: "90%", 
+                            objectFit: "contain",
+                            cursor: "default",
+                            boxShadow: "0 0 20px rgba(0,0,0,0.5)"
+                        }} 
+                    />
+                </div>
             )}
         </main>
     );

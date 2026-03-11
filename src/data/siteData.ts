@@ -12,7 +12,7 @@ export const siteData = {
         },
         contact: {
             address: "House 66, Road 1, Banani, Dhaka, Bangladesh",
-            phones: ["01730-061157"],
+            phones: ["02-9873273"],
             email: "synthesisarchitectsbd@gmail.com",
             workingHours: {
                 weekdays: "Sunday – Thursday: 9 AM – 6 PM",
@@ -229,7 +229,7 @@ export const siteData = {
         },
         {
             question: "How do I start a project with you?",
-            answer: "Simply call us at 01730-061157 or email synthesisarchitectsbd@gmail.com. We'll arrange an initial consultation at our Banani office."
+            answer: "Simply call us at 02-9873273 or email synthesisarchitectsbd@gmail.com. We'll arrange an initial consultation at our Banani office."
         },
         {
             question: "Do you handle both commercial architecture and interior design?",
@@ -303,7 +303,7 @@ export const siteData = {
             titleMain: "Ready to Plan ",
             titleAccent: "Your Next Project?",
             description: "Whether it is a commercial tower, flagship retail center, or institutional campus — contact our consulting agency today.",
-            buttonText: "Call Now: 01730-061157",
+            buttonText: "Call Now: 02-9873273",
             buttonLink: "/contact"
         }
     },
@@ -372,7 +372,7 @@ export const siteData = {
             titleMain: "Have a Major Project in Mind?",
             titleAccent: "",
             description: "Contact our Banani office today to schedule a professional consultation.",
-            buttonText: "Call: 01730-061157",
+            buttonText: "Call: 02-9873273",
             buttonLink: "/contact"
         }
     },
@@ -405,7 +405,7 @@ export const siteData = {
             titleMain: "Ready to Start Your ",
             titleAccent: "Development?",
             description: "Contact our agency to discuss your architectural and consulting needs.",
-            buttonText: "Call: 01730-061157",
+            buttonText: "Call: 02-9873273",
             buttonLink: "/contact"
         }
     },
@@ -426,7 +426,7 @@ export const siteData = {
             titleMain: "Inspired by Our ",
             titleAccent: "Work?",
             description: "Call our Banani office to propose your project and consult with our lead architects.",
-            buttonText: "Call: 01730-061157",
+            buttonText: "Call: 02-9873273",
             buttonLink: "/contact"
         }
     },
@@ -441,7 +441,7 @@ export const siteData = {
             tagline: "Request Consultation",
             titleMain: "Discuss Your ",
             titleAccent: "Project",
-            description: "Fill in the form to contact our consulting team, or reach us directly at 01730-061157.",
+            description: "Fill in the form to contact our consulting team, or reach us directly at 02-9873273.",
             buttonText: "Submit Inquiry",
             services: [
                 "Commercial Architecture",
@@ -506,7 +506,7 @@ export const siteData = {
             titleMain: "Ready to Develop Your ",
             titleAccent: "Next Project?",
             description: "Contact Synthesis Architects to start planning your commercial or institutional space.",
-            buttonText: "Call: 01730-061157",
+            buttonText: "Call: 02-9873273",
             buttonLink: "/contact"
         }
     },
@@ -566,7 +566,7 @@ export const siteData = {
             titleMain: "Ready to Partner With ",
             titleAccent: "Synthesis Architects?",
             description: "Call our agency today to discuss your commercial, retail, or institutional project.",
-            buttonText: "Call: 01730-061157",
+            buttonText: "Call: 02-9873273",
             buttonLink: "/contact"
         }
     }

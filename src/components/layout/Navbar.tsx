@@ -55,7 +55,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ))}
-                    <div className="mobile-menu-footer">
+                    {/* <div className="mobile-menu-footer">
                         <Link
                             href="/contact"
                             className="btn btn-primary"
@@ -63,7 +63,7 @@ const Navbar = () => {
                         >
                             Get Professional Quote
                         </Link>
-                    </div>
+                    </div> */}
                 </ul>
 
                 <div className="nav-right">
